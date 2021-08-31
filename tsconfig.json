@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "charset": "utf8",
+    "declaration": true,
+    "declarationDir": ".",
+    "downlevelIteration": true,
+    "emitBOM": false,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "lib": [
+      "ES2015",
+    ],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "newLine": "lf",
+    "outDir": "build",
+    "pretty": true,
+    "removeComments": false,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "ES2015",
+    "typeRoots": [
+      "node_modules/@types",
+    ],
+  },
+  "files": [
+    "src/index.ts",
+    "src/lib/cactus-stack.ts",
+  ],
+}

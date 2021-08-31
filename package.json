@@ -1,0 +1,63 @@
+{
+  "author": {
+    "email": "km.8k6ce+npm@gmail.com",
+    "name": "kei-g"
+  },
+  "bugs": {
+    "url": "https://github.com/kei-g/cactus-stack.js/issues"
+  },
+  "description": "A library for cactus stack",
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.8",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.1",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "terser": "^5.7.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "engines": {
+    "node": ">=14.7.5"
+  },
+  "homepage": "https://github.com/kei-g/cactus-stack.js",
+  "keywords": [
+    "algorithm",
+    "cactus stack",
+    "data structure",
+    "saguaro stack",
+    "spaghetti stack",
+    "stack"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "name": "cactus-stack",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kei-g/cactus-stack.js.git"
+  },
+  "scripts": {
+    "build": "npm-run-all -p clean lint -s build:tsc -p build:terse:*",
+    "build:terse:cactus-stack": "terser build/lib/cactus-stack.js -c -m -o lib/cactus-stack.js --toplevel",
+    "build:terse:index": "terser build/index.js -c -m -o index.js --toplevel",
+    "build:tsc": "tsc",
+    "clean": "rimraf .nyc_output/ build/ coverage/ index.d.ts index.js lib/",
+    "cover": "nyc --check-coverage -r html -r text _mocha",
+    "lint": "eslint src/*.ts src/lib/*.ts",
+    "postpublish": "run-s clean",
+    "prepublishOnly": "run-s build",
+    "start": "ts-node src/index.ts",
+    "test": "run-p cover lint"
+  },
+  "types": "index.d.ts",
+  "version": "1.0.0"
+}
