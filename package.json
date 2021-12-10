@@ -41,10 +41,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kei-g/cactus-stack.js.git"
-  },
+  "repository": "github:kei-g/cactus-stack.js",
   "scripts": {
     "build": "npm-run-all -p clean lint -p build:bundle build:tsc",
     "build:bundle": "esbuild src/index.ts --bundle --minify --outfile=index.js --platform=node --target=ES2015",
