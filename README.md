@@ -1,6 +1,6 @@
 # cactus-stack.js [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-url] [![travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-test-url] [![travis][travis-image]][travis-url]
 
 `cactus-stack` - A library for cactus stack works on [Node.js](https://nodejs.org/)
 
@@ -59,7 +59,8 @@ console.assert(err instanceof CactusStackError)
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/cactus-stack?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/cactus-stack?activeTab=dependencies
-[github-test-image]:https://img.shields.io/github/workflow/status/kei-g/cactus-stack.js/test/main?label=build%20%26%20test&logo=github
+[github-test-image]:https://github.com/kei-g/cactus-stack.js/actions/workflows/main.yml/badge.svg?branch=main
+[github-test-url]:https://github.com/kei-g/cactus-stack.js/actions/workflows/main.yml
 [github-url]:https://github.com/kei-g/cactus-stack.js
 [license-image]:https://img.shields.io/github/license/kei-g/cactus-stack.js
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
