@@ -1,5 +1,18 @@
 # Change Logs
 
+## Version 1.0.2
+
+- :robot: Dependabot is installed
+- :building_construction: Migration from `terser` to `esbuild`
+- :arrow_up: Packages for development are bumped
+  - `@types/chai` is bumped from 4.2.22 to 4.3.0
+  - `@types/node` is bumped from 16.11.6 to 16.11.12
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.2.0 to 5.6.0
+  - `@typescript-eslint/parser` is bumped from 5.2.0 to 5.6.0
+  - `eslint` is bumped from 8.1.0 to 8.4.1
+  - `typescript` is bumped from 4.4.4 to 4.5.3
+- :green_heart: Workflow is updated
+
 ## Version 1.0.1
 
 - :green_heart: Node.js version is upgraded for GitHub CI
