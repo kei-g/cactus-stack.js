@@ -6,7 +6,7 @@
     "declarationDir": ".",
     "downlevelIteration": true,
     "emitBOM": false,
-    "emitDeclarationOnly": false,
+    "emitDeclarationOnly": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "lib": [
@@ -15,7 +15,6 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
-    "outDir": "build",
     "pretty": true,
     "removeComments": false,
     "strict": true,
@@ -25,8 +24,8 @@
       "node_modules/@types",
     ],
   },
-  "files": [
-    "src/index.ts",
-    "src/lib/cactus-stack.ts",
+  "exclude": [],
+  "include": [
+    "src",
   ],
 }
