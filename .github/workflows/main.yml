@@ -18,6 +18,8 @@ jobs:
         with:
           cache: 'npm'
           node-version: ${{ matrix.node }}
+      - name: Upgrade npm
+        run: npm install npm@latest -g
       - name: Setup modules
         run: npm install
       - name: Build
@@ -41,6 +43,8 @@ jobs:
         with:
           cache: 'npm'
           node-version: ${{ matrix.node }}
+      - name: Upgrade npm
+        run: npm install npm@latest -g
       - name: Setup modules
         run: npm install
       - name: Test
