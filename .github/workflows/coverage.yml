@@ -39,7 +39,6 @@ on:
       - '.gitignore'
       - '.github/dependabot.yml'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
   push:
     paths-ignore:
@@ -48,5 +47,4 @@ on:
       - '.gitignore'
       - '.github/dependabot.yml'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
