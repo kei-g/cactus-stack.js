@@ -32,15 +32,9 @@ jobs:
           path: coverage
 name: Coverage
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
-      - '.editorconfig'
-      - '.gitignore'
-      - '.github/dependabot.yml'
-      - '.npmignore'
-      - 'LICENSE'
   push:
+    branches:
+      - main
     paths-ignore:
       - '**.md'
       - '.editorconfig'

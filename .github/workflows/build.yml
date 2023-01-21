@@ -26,15 +26,9 @@ jobs:
         run: npm run build
 name: Build
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
-      - '.editorconfig'
-      - '.gitignore'
-      - '.github/dependabot.yml'
-      - '.npmignore'
-      - 'LICENSE'
   push:
+    branches:
+      - main
     paths-ignore:
       - '**.md'
       - '.editorconfig'
