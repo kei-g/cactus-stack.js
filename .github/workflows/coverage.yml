@@ -35,10 +35,3 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**.md'
-      - '.editorconfig'
-      - '.gitignore'
-      - '.github/dependabot.yml'
-      - '.npmignore'
-      - 'LICENSE'
