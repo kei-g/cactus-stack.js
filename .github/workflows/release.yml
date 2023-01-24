@@ -1,0 +1,88 @@
+jobs:
+  github:
+    name: Create a release on GitHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Create a release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { ref } = context
+            if (!ref.match(/^refs\/tags\/v[0-9]+(\.[0-9]+)*(\-[0-9A-Za-z]+)*$/g))
+              return core.setFailed(`inappropriate ref, ${ref}`)
+            const version = ref.slice(11)
+            const child_process = require('node:child_process')
+            child_process.execSync(`git fetch --depth 1 origin +${ref}:${ref}`)
+            child_process.exec(
+              `git for-each-ref --format='%(contents)' ${ref}`,
+              {},
+              async (err, stdout, stderr) => {
+                const i = stdout.search(/Signed\-off\-by\:\ /g)
+                const message = i < 0 ? stdout : stdout.slice(0, i)
+                const response = await github.request(
+                  `POST /repos/${owner}/${repo}/releases`,
+                  {
+                    body: message,
+                    draft: false,
+                    name: `Version ${version}`,
+                    owner,
+                    prerelease: false,
+                    repo,
+                    tag_name: `v${version}`,
+                    target_commitish: context.sha,
+                  }
+                )
+                switch (response.status) {
+                  case 201:
+                    for (const key in response.data) {
+                      const value = response.data[key]
+                      if (typeof value === 'object')
+                        continue
+                      core.setOutput(key, value)
+                    }
+                    break
+                  case 404:
+                    core.setFailed('Not Found if the discussion category name is invalid')
+                    break
+                  case 422:
+                    core.setFailed('Validation failed, or the endpoint has been spammed')
+                    break
+                  default:
+                    core.setFailed(`Unknown error, ${response.status}`)
+                    break
+                }
+              }
+            )
+  npm:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade npm
+        run: npm install npm@latest -g
+      - name: Setup modules
+        run: npm ci
+      - env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        name: Publish
+        run: npm publish
+name: Release
+on:
+  create:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v[0-9]+(\.[0-9]+)*(\-[0-9A-Za-z]+)*'
