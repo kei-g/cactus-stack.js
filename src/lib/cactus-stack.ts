@@ -116,5 +116,5 @@ export interface CactusStackNode<T> extends Iterable<CactusStackNode<T>> {
    * @param {T} value New value to add to the cactus stack
    * @returns {CactusStackNode<T>} New node
    */
-  push(value: T): CactusStackNode<T>
+  push(_value: T): CactusStackNode<T>
 }
