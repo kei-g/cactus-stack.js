@@ -1,6 +1,6 @@
 import { CactusStack, CactusStackError } from '../src'
 import { describe, it } from 'mocha'
-import { expect } from 'chai'
+import { equal } from 'node:assert'
 
 describe(
   'cactus stack',
@@ -15,13 +15,13 @@ describe(
         const n12 = n1.push(1234)
         const n21 = n2.push(654)
         const n22 = n2.push(4567)
-        expect(n11.pop()).to.be.eq(321)
-        expect(n12.pop()).to.be.eq(1234)
-        expect(n21.pop()).to.be.eq(654)
-        expect(n22.pop()).to.be.eq(4567)
-        expect(n1.pop()).to.be.eq(123)
-        expect(n2.pop()).to.be.eq(456)
-        expect(n1.pop()).to.be.an.instanceOf(CactusStackError)
+        equal(n11.pop(), 321)
+        equal(n12.pop(), 1234)
+        equal(n21.pop(), 654)
+        equal(n22.pop(), 4567)
+        equal(n1.pop(), 123)
+        equal(n2.pop(), 456)
+        equal(n1.pop() instanceof CactusStackError, true)
       },
     )
     it(
