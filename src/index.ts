@@ -5,4 +5,4 @@
  */
 export const name = 'cactus-stack'
 
-export * from './lib/cactus-stack'
+export * from './lib/cactus-stack.ts'
