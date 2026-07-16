@@ -1,5 +1,5 @@
 import { CactusStack, CactusStackError } from '../src/index.ts'
-import { describe, it } from 'mocha'
+import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
 
 describe(
